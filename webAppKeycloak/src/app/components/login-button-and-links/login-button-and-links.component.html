@@ -1,0 +1,25 @@
+<!-- Login and Logout buttons -->
+<button type="button" (click)="login()" *ngIf="!this.authenticated">Login</button>
+<button type="button" (click)="logout()" *ngIf="this.authenticated">logout</button>
+
+<!-- h3 elements -->
+<h3 *ngIf="this.isAdmin">Logged in as Admin</h3>
+<h3 *ngIf="this.isUser">Logged in as User</h3>
+<h3 *ngIf="this.isRegistered">Logged in as Registered</h3>
+
+<!-- Show links when logged in -->
+<div *ngIf="this.authenticated">
+    <div>
+        <ul>
+            <li class="list-item">
+                <a routerLink="/admins-only">Admins only page</a>
+            </li>
+            <li class="list-item">
+                <a routerLink="/users-only">Users only page</a>
+            </li>
+            <li class="list-item">
+                <a routerLink="/registered-only">Registered only page</a>
+            </li>
+        </ul>
+    </div>
+</div>

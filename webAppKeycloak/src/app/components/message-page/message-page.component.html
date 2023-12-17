@@ -1,0 +1,9 @@
+<div *ngIf="this.authenticated">
+    <button type="button" (click)="this.backToHome()">Back to Homepage</button>
+    <div>
+        General message: {{ this.generalMessage }}
+    </div>
+    <div>
+        Specific message: {{ this.userSpecificMessage === '' ? 'unknown' : this.userSpecificMessage }}
+    </div>
+</div>
