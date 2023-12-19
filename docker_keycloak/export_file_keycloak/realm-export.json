@@ -440,7 +440,13 @@
       "realmRoles": [
         "ADMIN"
       ],
-      "clientRoles": {},
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "view-users",
+          "query-users"
+        ]
+      },
       "subGroups": []
     },
     {
@@ -489,8 +495,8 @@
   "otpPolicyCodeReusable": false,
   "otpSupportedApplications": [
     "totpAppMicrosoftAuthenticatorName",
-    "totpAppFreeOTPName",
-    "totpAppGoogleName"
+    "totpAppGoogleName",
+    "totpAppFreeOTPName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": [
