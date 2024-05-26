@@ -17,18 +17,16 @@
 <!-- Show links when logged in -->
 @if (this.authenticated()) {
   <div>
-    <div>
-      <ul>
-        <li class="list-item">
-          <a routerLink="/admins-only">Admins only page</a>
-        </li>
-        <li class="list-item">
-          <a routerLink="/users-only">Users only page</a>
-        </li>
-        <li class="list-item">
-          <a routerLink="/registered-only">Registered only page</a>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li class="list-item">
+        <a routerLink="/admins-only">Admins only page</a>
+      </li>
+      <li class="list-item">
+        <a routerLink="/users-only">Users only page</a>
+      </li>
+      <li class="list-item">
+        <a routerLink="/registered-only">Registered only page</a>
+      </li>
+    </ul>
   </div>
 }
