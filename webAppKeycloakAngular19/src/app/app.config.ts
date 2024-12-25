@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { createInterceptorCondition, INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG, IncludeBearerTokenCondition, includeBearerTokenInterceptor, provideKeycloak } from 'keycloak-angular';
+import { createInterceptorCondition, INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG, IncludeBearerTokenCondition, includeBearerTokenInterceptor, provideKeycloak, withAutoRefreshToken } from 'keycloak-angular';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { environment } from '../environments/environment';
@@ -29,7 +29,13 @@ export const appConfig: ApplicationConfig = {
       initOptions: {
         onLoad: 'check-sso',
         checkLoginIframe: false
-      }
+      },
+      features: [
+        withAutoRefreshToken({
+          onInactivityTimeout: 'login',
+          sessionTimeout: 300000
+        })
+      ]
     }),
     {
       provide: INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
