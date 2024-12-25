@@ -1,0 +1,40 @@
+<div class="p-1">
+    <!-- Login and Logout buttons -->
+    @if (!this.authenticated()) {
+        <button type="button" mat-raised-button color="primary" (click)="login()">Login</button>
+    } @else {
+        <button type="button" mat-raised-button color="warn" (click)="logout()">Logout</button>
+    }
+
+    <!-- h3 elements -->
+    @if (this.isAdmin()) {
+        <h3>Logged in as Admin</h3>
+    } @else if (this.isUser()) {
+        <h3>Logged in as User</h3>
+    } @else if (this.isRegistered()) {
+        <h3>Logged in as Registered</h3>
+    }
+
+    <!-- Show link when logged in -->
+    @if (this.authenticated()) {
+        <div>
+            <ul>
+                @if (this.isAdmin()) {
+                    <li class="list-item">
+                        <a [routerLink]="['/admins-only']">Admins only page</a>
+                    </li>
+                }
+                @if (this.isUser()) {
+                    <li class="list-item">
+                        <a [routerLink]="['/users-only']">Users only page</a>
+                    </li>
+                }
+                @if (this.isRegistered()) {
+                    <li class="list-item">
+                        <a [routerLink]="['/registered-only']">Registered only page</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

@@ -1,0 +1,11 @@
+<div class="p-1">
+    <button type="button" mat-raised-button color="primary" (click)="this.backToHome()">Back to Homepage</button>
+    @if (this.authenticated()) {
+      <div class="p-1">
+        General message: {{ this.generalMessage() }}
+      </div>
+      <div class="p-1">
+        Specific message: {{ this.userSpecificMessage() === '' ? 'unknown' : this.userSpecificMessage() }}
+      </div>  
+    }
+</div>
