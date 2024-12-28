@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
-import { KEYCLOAK_EVENT_SIGNAL, KeycloakEventType, KeycloakService, ReadyArgs, typeEventArgs } from "keycloak-angular";
+import { KEYCLOAK_EVENT_SIGNAL, KeycloakEventType } from "keycloak-angular";
 import Keycloak, { KeycloakRoles } from "keycloak-js";
 import { ApplicationRoles } from "../models/application-roles/application-roles.enum";
 
