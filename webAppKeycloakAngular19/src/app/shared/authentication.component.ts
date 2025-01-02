@@ -25,7 +25,7 @@ export abstract class AuthenticationComponent implements OnInit {
             this.authenticated.set(this.keycloakSignal().args === true ? true : false);
 
             if(this.authenticated()) {
-                const keycloakRoles: KeycloakRoles | undefined  = this.keycloak.realmAccess;
+                const keycloakRoles: KeycloakRoles | undefined = this.keycloak.realmAccess;
                 const roles: string[] = keycloakRoles?.roles ?? [];
 
                 this.isAdmin.set(roles.includes(ApplicationRoles.ADMIN));

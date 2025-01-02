@@ -25,7 +25,7 @@ export class MessagePageComponent extends AuthenticationComponent implements OnI
   override ngOnInit(): void {
     this.getKeycloakRoles();
     this.getGeneralText();
-    this.getUserSpecificMessages()
+    this.getUserSpecificMessages();
   }
 
   backToHome() : void {
