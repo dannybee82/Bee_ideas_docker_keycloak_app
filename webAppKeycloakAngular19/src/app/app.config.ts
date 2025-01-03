@@ -1,10 +1,11 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { createInterceptorCondition, INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG, IncludeBearerTokenCondition, includeBearerTokenInterceptor, provideKeycloak, withAutoRefreshToken } from 'keycloak-angular';
+import { createInterceptorCondition, INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG, IncludeBearerTokenCondition, includeBearerTokenInterceptor, provideKeycloak, UserActivityService, withAutoRefreshToken } from 'keycloak-angular';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { environment } from '../environments/environment';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { AutoRefreshTokenService } from 'keycloak-angular';
 
 //Settings for Bearer token interceptor
 const bearerTokenInterceptor = createInterceptorCondition<IncludeBearerTokenCondition>({
@@ -30,11 +31,12 @@ export const appConfig: ApplicationConfig = {
         onLoad: 'check-sso',
         checkLoginIframe: false
       },
+      providers: [AutoRefreshTokenService, UserActivityService],
       features: [
         withAutoRefreshToken({
           onInactivityTimeout: 'login',
           sessionTimeout: 300000
-        })
+        }),        
       ]
     }),
     {
